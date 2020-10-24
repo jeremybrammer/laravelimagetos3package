@@ -22,7 +22,7 @@ class laravelimagetos3package implements ImageTos3Interface
 
         //Store in local storage:
         // $path = $file->store('images', 'public'); //Get from public storage.
-        $path = $file->store('images', 's3');
+        $path = $file->store('victorycto/images', 's3');
         $originalFilename = $file->getClientOriginalName();
 
         //Save image data to database:
@@ -46,7 +46,8 @@ class laravelimagetos3package implements ImageTos3Interface
 
     public function preSignS3Url($pathToS3File){
         $s3Client = Storage::disk("s3")->getDriver()->getAdapter()->getClient();
-        $s3Bucket = Config::get("filesystems.disks.s3.bucket");
+        $s3Bucket = Config::get("filesystems.disks.s3.bucket"); //For signing s3 not CloudFront urls.
+        // $s3Bucket = Config::get("filesystems.disks.s3.url");
 
         $command = $s3Client->getCommand("GetObject", [
             "Bucket" => $s3Bucket,
