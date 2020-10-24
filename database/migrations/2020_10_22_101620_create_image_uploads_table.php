@@ -15,8 +15,10 @@ class CreateImageUploadsTable extends Migration
     {
         Schema::create('image_uploads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('filename');
-            $table->string('url');
+            $table->string('original_filename');
+            $table->string('original_image_url');
+            $table->string('small_image_url')->nullable();
+            $table->string('thumbnail_image_url')->nullable();
             $table->timestamps();
         });
     }
