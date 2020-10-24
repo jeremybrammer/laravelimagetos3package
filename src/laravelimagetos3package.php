@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use jeremybrammer\laravelimagetos3package\Models\ImageUpload;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
+// use Dreamonkey\CloudFrontUrlSigner\CloudFrontUrlSigner;
+use Dreamonkey\CloudFrontUrlSigner\Facades\CloudFrontUrlSigner;
 
 class laravelimagetos3package implements ImageTos3Interface
 {
@@ -44,6 +47,7 @@ class laravelimagetos3package implements ImageTos3Interface
         $imageUpload->save();
     }
 
+
     public function preSignS3Url($pathToS3File){
         $s3Client = Storage::disk("s3")->getDriver()->getAdapter()->getClient();
         $s3Bucket = Config::get("filesystems.disks.s3.bucket"); //For signing s3 not CloudFront urls.
@@ -59,12 +63,29 @@ class laravelimagetos3package implements ImageTos3Interface
         return (string)$s3request->getUri();
     }
 
+
+
+    public function preSignCloudFrontUrl($pathToS3File){
+        // $s3Client = Storage::disk("s3")->getDriver()->getAdapter()->getClient();
+        $url = Config::get("filesystems.disks.s3.url") . "/" . $pathToS3File;
+
+        $signedURL = CloudFrontUrlSigner::sign($url, 1);
+
+        // dd($signedURL);
+
+       // $s3request = $s3Client->createPresignedRequest($url, "+20 minutes");
+
+        return $signedURL;
+    }
+
+
     public function getAllUploadedImages(){
         $images = ImageUpload::all();
 
         //Presign URLs:
         foreach($images as $image){
-            $image->original_image_url_presigned = $this->preSignS3Url($image->original_image_url);
+            // $image->original_image_url_presigned = $this->preSignS3Url($image->original_image_url); //Sign s3.
+            $image->original_image_url_presigned = $this->preSignCloudFrontUrl($image->original_image_url); //Sign CloudFront.
         }
 
         return $images;

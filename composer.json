@@ -4,15 +4,16 @@
     "license": "license",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Jeremy Brammer",
+            "email": "jbrammer03@gmail.com",
+            "homepage": "http://www.jeremylbrammer.com"
         }
     ],
     "homepage": "https://github.com/jeremybrammer/laravelimagetos3package",
     "keywords": ["Laravel", "laravelimagetos3package"],
     "require": {
         "illuminate/support": "~6",
+        "dreamonkey/laravel-cloudfront-url-signer": "^3.0.0",
         "league/flysystem-aws-s3-v3": "~1.0"
     },
     "require-dev": {
