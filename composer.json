@@ -1,7 +1,7 @@
 {
     "name": "jeremybrammer/laravelimagetos3package",
     "description": ":package_description",
-    "license": "license",
+    "license": "MIT",
     "authors": [
         {
             "name": "Jeremy Brammer",
