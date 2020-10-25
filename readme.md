@@ -3,9 +3,10 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+<!-- [![StyleCI][ico-styleci]][link-styleci] -->
+<!-- This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list. -->
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+A simple Laravel package, to handle image uploads.  This package will create a database migration for images, and upload them, resize them, store them on s3, and pre-sign CloudFront URLs!
 
 ## Installation
 
