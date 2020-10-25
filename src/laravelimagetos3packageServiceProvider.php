@@ -34,13 +34,13 @@ class laravelimagetos3packageServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/laravelimagetos3package.php', 'laravelimagetos3package');
 
         // Register the service the package provides.
-        // $this->app->singleton('laravelimagetos3package', function ($app) {
-        //     return new laravelimagetos3package;
-        // });
-
-        $this->app->bind(ImageTos3Interface::class, function($app){
+        $this->app->singleton('laravelimagetos3package', function ($app) {
             return new laravelimagetos3package;
         });
+
+        // $this->app->bind(ImageTos3Interface::class, function($app){
+        //     return new laravelimagetos3package;
+        // });
 
     }
 

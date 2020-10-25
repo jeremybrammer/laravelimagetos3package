@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\URL;
 // use Dreamonkey\CloudFrontUrlSigner\CloudFrontUrlSigner;
 use Dreamonkey\CloudFrontUrlSigner\Facades\CloudFrontUrlSigner;
 
-class laravelimagetos3package implements ImageTos3Interface
+class laravelimagetos3package
 {
     public function test(){
 
