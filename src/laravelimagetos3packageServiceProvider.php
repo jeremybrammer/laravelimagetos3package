@@ -38,10 +38,10 @@ class laravelimagetos3packageServiceProvider extends ServiceProvider
             return new laravelimagetos3package;
         });
 
+        //At first I used an interface, but later went with facades instead.
         // $this->app->bind(ImageTos3Interface::class, function($app){
         //     return new laravelimagetos3package;
         // });
-
     }
 
     /**
