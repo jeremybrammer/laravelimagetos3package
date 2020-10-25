@@ -61,10 +61,16 @@ class laravelimagetos3packageServiceProvider extends ServiceProvider
      */
     protected function bootForConsole(): void
     {
-        // Publishing the configuration file.
+
+        //Publish dependency's config file.
         $this->publishes([
-            __DIR__.'/../config/laravelimagetos3package.php' => config_path('laravelimagetos3package.php'),
-        ], 'laravelimagetos3package.config');
+            __DIR__.'/../../../../vendor/dreamonkey/laravel-cloudfront-url-signer/config/cloudfront-url-signer.php' => config_path('cloudfront-url-signer.php')
+        ]);
+
+        // Publishing the configuration file.
+        // $this->publishes([
+        //     __DIR__.'/../config/laravelimagetos3package.php' => config_path('laravelimagetos3package.php'),
+        // ], 'laravelimagetos3package.config');
 
         // Publishing the views.
         /*$this->publishes([
