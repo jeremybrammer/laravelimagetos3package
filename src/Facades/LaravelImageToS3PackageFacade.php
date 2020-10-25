@@ -4,7 +4,7 @@ namespace jeremybrammer\laravelimagetos3package\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class laravelimagetos3package extends Facade
+class LaravelImageToS3PackageFacade extends Facade
 {
     /**
      * Get the registered name of the component.

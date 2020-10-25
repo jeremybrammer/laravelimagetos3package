@@ -36,7 +36,7 @@
                 "jeremybrammer\\laravelimagetos3package\\laravelimagetos3packageServiceProvider"
             ],
             "aliases": {
-                "laravelimagetos3package": "jeremybrammer\\laravelimagetos3package\\Facades\\laravelimagetos3package"
+                "laravelimagetos3package": "jeremybrammer\\laravelimagetos3package\\Facades\\LaravelImageToS3PackageFacade"
             }
         }
     }
